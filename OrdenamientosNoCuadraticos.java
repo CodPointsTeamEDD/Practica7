@@ -14,7 +14,7 @@ public class OrdenamientosNoCuadraticos {
     }
 
     private static <T extends Comparable<T>> ListaDoblementeLigada<T> mezclar(ListaDoblementeLigada<T> li, ListaDoblementeLigada<T> ld) {
-        // Aquí va tu codigo        
+          
     }
 
     public static <T extends Comparable<T>> void quickSort(T[] arreglo) {
@@ -26,7 +26,14 @@ public class OrdenamientosNoCuadraticos {
     }
 
     private static <T extends Comparable<T>> int particionar(T[] arreglo, int inicio, int fin) {
-        // Aquí va tu codigo
+        T pivote  = arreglo[fin];
+        Integer i = inicio - 1;
+
+        for (T j : arreglo) {
+            if(j.compareTo(inicio) >= 0 && j.compareTo(fin) < 0){
+
+            }
+        }
     }
 
     private static <T> void intercambiar(T[] arreglo, int i, int j) {
