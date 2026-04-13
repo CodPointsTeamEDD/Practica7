@@ -3,7 +3,7 @@ public class OrdenamientosNoCuadraticos {
 
     public static void countingSort(Integer[] arreglo) {
         int mayor = obtenerMax(arreglo);
-        int[] conteo = new int[arreglo.length + 1];
+        int[] conteo = new int[mayor+1];
         for (int i = 0; i < arreglo.length; i++) {
             conteo[arreglo[i]] = conteo[arreglo[i]] + 1; 
         }    
@@ -94,25 +94,42 @@ public class OrdenamientosNoCuadraticos {
     }
 
     public static <T extends Comparable<T>> void quickSort(T[] arreglo) {
-        // Aquí va tu codigo
+        quickSortAux(arreglo, 0, arreglo.length-1);
     }
 
     private static <T extends Comparable<T>> void quickSortAux(T[] arreglo, int inicio, int fin) {
-        // Aquí va tu codigo
+        if (inicio >= fin) {
+            return;
+        }
+        int indicePivote = particionar(arreglo, inicio, fin);
+
+        quickSortAux(arreglo, inicio, indicePivote-1);
+        quickSortAux(arreglo, indicePivote + 1, fin);
+
     }
 
     private static <T extends Comparable<T>> int particionar(T[] arreglo, int inicio, int fin) {
-        T pivote  = arreglo[fin];
-        Integer i = inicio - 1;
+        T pivote = arreglo[fin];   // pivote ← arreglo[fin]
+        int i = inicio - 1;        // i ← inicio - 1
 
-        for (T j : arreglo) {
-            if(j.compareTo(inicio) >= 0 && j.compareTo(fin) < 0){
+        for (int j = inicio; j < fin; j++) {
+            // arreglo[j] ≤ pivote usando compareTo
+            if (arreglo[j].compareTo(pivote) <= 0) {
+                i++;
 
+                // intercambiar arreglo[i] y arreglo[j]
+                intercambiar(arreglo, i, j);
             }
         }
+
+        // intercambiar arreglo[i + 1] y arreglo[fin]
+        intercambiar(arreglo, i + 1, fin);
+        return i + 1;
     }
 
     private static <T> void intercambiar(T[] arreglo, int i, int j) {
-        // Aquí va tu codigo
+        T temp = arreglo[i];
+        arreglo[i] = arreglo[j];
+        arreglo[j] = temp;
     }
 }
