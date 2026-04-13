@@ -49,7 +49,7 @@ public class MainParo {
                 String regular = datos[5].trim();
 
                 Estudiante estudiante = new Estudiante(numeroDeCuenta, nombre, Integer.parseInt(materiasInscritas),
-                        Integer.parseInt(materiasAprobadas), Integer.parseInt(porcentajeCreditos),
+                        Integer.parseInt(materiasAprobadas), Double.parseDouble(porcentajeCreditos),
                         Boolean.parseBoolean(regular));
                 Alumnos.agregar(estudiante);
             }
