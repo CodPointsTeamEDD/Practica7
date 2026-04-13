@@ -1,3 +1,12 @@
+/**
+ * Clase que representa la clase Curso
+ * 
+ * @author Erick Xavier Martinez Briones
+ * @author Luis Fernando Quintana López
+ * @version 1.0.0
+ * @since 2026
+ */
+
 public class Curso {
 
     /**
@@ -27,6 +36,11 @@ public class Curso {
         this.longitud++;
     }
 
+    /**
+     * Metodo que devuelve la longitud del curso
+     * 
+     * @return longitud del curso
+     */
     public int devolverLongitud() {
         return this.longitud;
     }
