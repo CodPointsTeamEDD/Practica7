@@ -1,19 +1,17 @@
 public class Temporal{
     public static void main(String[] args) {
         ListaDoblementeLigada<Integer> L1 = new ListaDoblementeLigada<Integer>();
-        ListaDoblementeLigada<Integer> L2 = new ListaDoblementeLigada<Integer>();
 
+        L1.agregarFinal(5);
         L1.agregarFinal(1);
-        L1.agregarFinal(2);
-        L1.agregarFinal(3);
+        L1.agregarFinal(8);
+        L1.agregarFinal(5);
+        L1.agregarFinal(7);
+        L1.agregarFinal(1);
 
-        L2.agregarFinal(4);
-        L2.agregarFinal(5);
-        L2.agregarFinal(6);
+        OrdenamientosNoCuadraticos.mergeSort(L1);
 
-        ListaDoblementeLigada<Integer> L3 = OrdenamientosNoCuadraticos.mezclar(L1, L2);
-
-        for (Object elem : L3) {
+        for (Object elem : L1) {
             System.out.println(elem + " ");
         }
     }
