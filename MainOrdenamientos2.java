@@ -1,10 +1,24 @@
+/**
+ * Clase que permite probar algoritmos de ordenamiento definidos en la
+ * clase OrdenamientosNoCuadraticos, para lo cual se generan estructuras 
+ * con elementos aleatorios y se muestra en pantalla el resultado obtenido
+ * tras ordenarlos
+ * 
+ * @author Erick Xavier Martinez Briones
+ * @author Luis Fernando Quintana López
+ * @version 1.0.0
+ * @since 2026
+ */
+
 import java.util.Random;
 
 
 public class MainOrdenamientos2 {
 
     /**
-     * Llena la documentación sobre el main y los metodos auxiliares que utiliza el main
+     * Método que ejectuta todos los métodos definidos en la clase
+     * OrdenamientosNoCuadraticos, ordenando arreglos o listas doblemente ligadas
+     * y muestra el resultado en pantalla
      * 
      */
     public static void main(String[] args) {
