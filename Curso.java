@@ -12,7 +12,7 @@ public class Curso {
     /**
      * Lista ligada simple que almacena las páginas del alumnosEnCurso.
      */
-    private Lista<Estudiante> alumnosEnCurso;
+    private ListaDoblementeLigada<Estudiante> alumnosEnCurso;
     private int longitud = 0;
 
     /**
@@ -20,7 +20,7 @@ public class Curso {
      *
      * @param alumnosEnCurso la lista ligada simple de páginas inicial
      */
-    public Curso(Lista<Estudiante> alumnosEnCurso) {
+    public Curso(ListaDoblementeLigada<Estudiante> alumnosEnCurso) {
         this.alumnosEnCurso = alumnosEnCurso;
     }
 
@@ -32,7 +32,7 @@ public class Curso {
      * @param p la página a agregar
      */
     public void agregarEstudiante(Estudiante e) {
-        this.alumnosEnCurso.agregar(e);
+        this.alumnosEnCurso.agregarFinal(e);
         this.longitud++;
     }
 
@@ -54,7 +54,7 @@ public class Curso {
      */
     @Override
     public String toString() {
-        String separacion = "--------------------------------";
+        String separacion = "-----------------------------------------";
         String nom = "Nombre del estudiante: ";
         String ult = "Numero de cuenta: ";
         String interfaz = " ";

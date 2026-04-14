@@ -30,6 +30,9 @@ public class Estudiante implements Comparable<Estudiante> {
     /** Booleano que representa si el estudiante es regular o no es regular */
     private boolean regular;
 
+    /** Natural que representa un valor aleatorio asignado al estudiante */
+    private int randomFijo;
+
     /**
      * Constructor de la clase Estudiante
      * 
@@ -50,6 +53,9 @@ public class Estudiante implements Comparable<Estudiante> {
         this.numeroMateriasAprobadas = numeroMateriasAprobadas;
         this.porcentajeCreditos = porcentajeCreditos;
         this.regular = regular;
+
+        Random rd =  new Random();
+        this.randomFijo = rd.nextInt(67);
     }
 
     /**
@@ -168,12 +174,7 @@ public class Estudiante implements Comparable<Estudiante> {
      * @return double que representa el indice de aprobacion de un estudiante
      */
     public double calcularIndiceAprobacion() {
-        return (this.numeroMateriasAprobadas * 100) / this.numeroMateriasInscritas;
-    }
-
-    public int numeroRandom() {
-        Random rd = new Random();
-        return rd.nextInt(67);
+        return (double)this.numeroMateriasAprobadas / this.numeroMateriasInscritas;
     }
 
     /**
@@ -187,27 +188,27 @@ public class Estudiante implements Comparable<Estudiante> {
     public int compareTo(Estudiante e2) {
 
         if (this.calcularIndiceAprobacion() > e2.calcularIndiceAprobacion()) {
-            return 1;
-        } else if (this.calcularIndiceAprobacion() < e2.calcularIndiceAprobacion()) {
             return -1;
+        } else if (this.calcularIndiceAprobacion() < e2.calcularIndiceAprobacion()) {
+            return 1;
         } else {
 
             if (this.getPorcentajeCreditos() > e2.getPorcentajeCreditos()) {
-                return 1;
-            } else if (this.getPorcentajeCreditos() < e2.getPorcentajeCreditos()) {
                 return -1;
+            } else if (this.getPorcentajeCreditos() < e2.getPorcentajeCreditos()) {
+                return 1;
             } else {
 
                 if (this.getRegular() && !e2.getRegular()) {
-                    return 1;
-                } else if (!this.getRegular() && e2.getRegular()) {
                     return -1;
+                } else if (!this.getRegular() && e2.getRegular()) {
+                    return 1;
                 } else {
 
-                    if (this.numeroRandom() > e2.numeroRandom()) {
-                        return 1;
-                    } else if (this.numeroRandom() < e2.numeroRandom()) {
+                    if (this.randomFijo > e2.randomFijo) {
                         return -1;
+                    } else if (this.randomFijo < e2.randomFijo) {
+                        return 1;
                     } else {
                         return 0;
                     }

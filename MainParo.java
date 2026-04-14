@@ -60,7 +60,7 @@ public class MainParo {
             for (Estudiante es : Alumnos) {
                 curso.agregarEstudiante(es);
 
-                if (curso.devolverLongitud() > 10) {
+                if (curso.devolverLongitud() == 10) {
                     break;
                 }
             }
@@ -74,7 +74,19 @@ public class MainParo {
     }
 
     public static void main(String[] args) {
-        System.out.println("======= Curso con los alumnos asignados =======");
+        System.out.println("======= Facultad de Ciencias  =======");
+        System.out.println("");
+        System.out.println("FUNDAMENTOS DE IA Y FILOSOFÍA DEL BRAINROT APLICADO (CÁTEDRA TUNG TUNG SAHUR)");
+        System.out.println("---------------------------------------------------------");
+        System.out.println("Grupo 6767. 10 lugares. 10 lugares. Modalidad presencial");
+        System.out.println("5 alumnos esperando asignacion");
+        System.out.println("Profesor Tung Tung Tung Sahur");
+        System.out.println("Ayudante Tralalero Tralala");
+        System.out.println("Ayud. Lab. Bombardiro Crocodilo");
+        System.out.println("---------------------------------------------------------");
+
+        System.out.println("");
+        System.out.println("======== Alumnos seleccionados ========");
         obtenerInfo();
     }
 
