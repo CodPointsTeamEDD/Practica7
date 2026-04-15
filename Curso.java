@@ -57,6 +57,9 @@ public class Curso {
         String separacion = "-----------------------------------------";
         String nom = "Nombre del estudiante: ";
         String ult = "Numero de cuenta: ";
+        String ind = "Indice de aprobacion: ";
+        String cre = "Avance de creditos: ";
+        String reg = "Regularidad: ";
         String interfaz = " ";
 
         for (Estudiante es : alumnosEnCurso) {
@@ -64,6 +67,9 @@ public class Curso {
             interfaz += separacion + "\n" +
                     nom + es.getNombre() + "\n" +
                     ult + es.getNumeroDeCuenta() + "\n" +
+                    ind + es.calcularIndiceAprobacion() + "\n" + 
+                    cre + es.getPorcentajeCreditos() + "%" + "\n" +
+                    reg + es.getRegular() + "\n" +
                     separacion
                     + "\n";
 

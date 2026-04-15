@@ -19,12 +19,15 @@ public class MainParo {
      * de la clase "Estudiante" con la informacion recabada del archivo txt, cada
      * estudiante se guardara en una lista doblemente ligada "Alumnos", que despues
      * se ordenara mediante el uso de un algortimo de ordenamiento, para
-     * posteriormente ir guardando en el objeto "Curso" hasta que cupo se llene,
-     * para finalmente imprimir la informacion del curso
+     * posteriormente ir guardando en el objeto "Curso" hasta que cupo se llene una
+     * vez lleno, los alumnos restantes se van a un curso llamado enEspera para de
+     * igual manera. Finalmenete se muestra la informacion de ambos cursos
      */
+    
     public static void obtenerInfo() {
         ListaDoblementeLigada<Estudiante> Alumnos = new ListaDoblementeLigada<>();
         Curso curso = new Curso(new ListaDoblementeLigada<>());
+        Curso enEspera = new Curso(new ListaDoblementeLigada<>());
         OrdenamientosNoCuadraticos or = new OrdenamientosNoCuadraticos();
 
         try (BufferedReader br = new BufferedReader((new FileReader("Alumnos.txt")))) {
@@ -58,14 +61,20 @@ public class MainParo {
             or.mergeSort(Alumnos);
 
             for (Estudiante es : Alumnos) {
-                curso.agregarEstudiante(es);
-
-                if (curso.devolverLongitud() == 10) {
-                    break;
+                if (curso.devolverLongitud() < 10) {
+                    curso.agregarEstudiante(es);
+                } else {
+                    enEspera.agregarEstudiante(es);
                 }
+
             }
 
+            // estudiantes en el curso
+            System.out.println("======== Alumnos seleccionados ========");
             System.out.println(curso.toString());
+            System.out.println(" ");
+            System.out.println("======== Alumnos NO seleccionados ========");
+            System.out.println(enEspera.toString());
 
         } catch (IOException e) {
             System.out.println("Error al leer el archivo");
@@ -86,7 +95,7 @@ public class MainParo {
         System.out.println("---------------------------------------------------------");
 
         System.out.println("");
-        System.out.println("======== Alumnos seleccionados ========");
+
         obtenerInfo();
     }
 
